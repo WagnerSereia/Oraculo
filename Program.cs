@@ -1,5 +1,4 @@
-﻿using Google.Apis.Services;
-using StackExchange.Redis;
+﻿using StackExchange.Redis;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,17 +19,12 @@ namespace Oraculo
         {
             oraculo_group = "wagner_group";
 
-            // Create pub/sub
             var pubsub = connection.GetSubscriber();
 
-            // Subscriber subscribes to a channel
             pubsub.Subscribe(ChatChannel, (channel, message) => MessageAction(message));
 
-            // Notify subscriber(s) if you're joining
-            pubsub.Publish(ChatChannel, $": {oraculo_group} entrou esta participando do grupo de oraculos.");
+            pubsub.Publish(ChatChannel, $": {oraculo_group} esta participando do grupo de oraculos.");
 
-            //PesquisaGoogle();
-            // Messaging here
             while (true)
             {
                 var resposta = Console.ReadLine();
@@ -57,6 +51,7 @@ namespace Oraculo
                 Console.CursorTop = initialCursorTop;
                 Console.CursorLeft = 0;
                 #endregion
+
                 var PerguntaNumero_GroupName = teste[0];
                 var Pergunta_Resposta = teste[1];
 
@@ -64,18 +59,22 @@ namespace Oraculo
                 {
                     if(PerguntaNumero_GroupName != "" && PerguntaNumero_GroupName.Substring(0,1).Equals("P"))
                     {
+                        #region Tratamento da pergunta que virá do bot
                         Console.WriteLine($"*****************************{PerguntaNumero_GroupName}*****************************************");
                         Console.WriteLine(Pergunta_Resposta);
                         Console.WriteLine("************************************************************************");
                         Console.WriteLine("Resposta: ");
                         Console.CursorTop = initialCursorTop + 3;                        
                         Console.CursorLeft = 10;
+                        #endregion
                     }
                     else
                     {
+                        #region Tratamento das respostas dos outros oraculos
                         Console.WriteLine(Pergunta_Resposta);
                         Console.CursorTop = initialCursorTop + 3;
                         Console.CursorLeft = 0;
+                        #endregion
                     }                                        
                 }
             }
