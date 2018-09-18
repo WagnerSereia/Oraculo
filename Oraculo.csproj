@@ -40,6 +40,9 @@
     <Reference Include="Pipelines.Sockets.Unofficial, Version=1.0.0.0, Culture=neutral, PublicKeyToken=42ea0a778e13fbe2, processorArchitecture=MSIL">
       <HintPath>packages\Pipelines.Sockets.Unofficial.1.0.0\lib\netstandard2.0\Pipelines.Sockets.Unofficial.dll</HintPath>
     </Reference>
+    <Reference Include="RedisBoost, Version=1.6.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\RedisBoost.1.6.4\lib\net40\RedisBoost.dll</HintPath>
+    </Reference>
     <Reference Include="StackExchange.Redis, Version=2.0.0.0, Culture=neutral, PublicKeyToken=c219ff1ca8c2ce46, processorArchitecture=MSIL">
       <HintPath>packages\StackExchange.Redis.2.0.505\lib\net461\StackExchange.Redis.dll</HintPath>
     </Reference>

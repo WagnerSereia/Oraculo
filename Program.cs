@@ -9,14 +9,16 @@ namespace Oraculo
 {
     class Program
     {
-        private const string RedisConnectionString = "localhost";
-        private static ConnectionMultiplexer connection = ConnectionMultiplexer.Connect(RedisConnectionString);
+        private const string RedisConnectionString = "127.0.0.1:6379";
+        private static ConnectionMultiplexer connection;
 
         private const string ChatChannel = "perguntas";
         private static string oraculo_group = string.Empty;
 
         static void Main()
         {
+            connection = ConnectionMultiplexer.Connect(RedisConnectionString);
+            
             oraculo_group = "wagner_group";
 
             var pubsub = connection.GetSubscriber();
