@@ -1,2 +1,2 @@
 # Oraculo
-Projeto que utiliza o 
+Projeto mostrando o funcionamento do Redis
